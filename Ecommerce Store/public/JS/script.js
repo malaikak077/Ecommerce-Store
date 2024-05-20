@@ -13,10 +13,7 @@ document.getElementById('one').addEventListener('click',function(){
   document.getElementById('four').addEventListener('click',function(){
     window.location.href = 'Accesories.html';
   })
-  // document.getElementById('cartButton').addEventListener('click',function(){
-  //   window.location.href = 'cart';
-  // })
-
+  
 
   
  

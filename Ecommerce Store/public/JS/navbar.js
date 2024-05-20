@@ -13,12 +13,17 @@ document.addEventListener('DOMContentLoaded', function () {
     const overlay = document.getElementById('overlay');
     const closeButton = cart.querySelector('.close');
     const addToCartButton = document.getElementById('AddCart');
+    const buyNowButton = document.getElementById('BuyNow');
     const quantity = document.getElementById("quantity");
     const add = document.getElementById("add");
     const sub = document.getElementById("sub");
     let value = 1;
 
+  
     let cartItems = getCartFromCookies();
+     
+   
+
 
     // Display existing cart items from cookies
     if (cartItems.length > 0) {
@@ -26,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
             displayCartItem(item);
         }
         updateSubtotal();
+        updateCartBadge()
     }
 
     // Show cart when cart button is clicked
@@ -70,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     })
 
+   
 
 
    
@@ -95,10 +102,16 @@ document.addEventListener('DOMContentLoaded', function () {
        
         addToCart(product);
         updateSubtotal();
+        updateCartBadge()
         value = 1; // Reset quantity to 1 after adding to cart
         quantity.innerHTML = value; // Update quantity display
        
     });
+    buyNowButton.addEventListener('click', function () {
+        const quant = document.getElementById('quantity').textContent;
+        localStorage.setItem('productQuantity', quant);
+    });
+
     
   
     function addToCart(product) {
@@ -150,6 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
             deleteButton.addEventListener('click', () => {
                 removeCartItem(item);
                 cartElement.remove(); 
+                updateCartBadge();
             });
     
             cartContainer.appendChild(cartElement);
@@ -196,5 +210,13 @@ document.addEventListener('DOMContentLoaded', function () {
         const subtotalElement = document.getElementById('subtotal');
         subtotalElement.innerHTML = `$${subtotal}`;
     }
+
+  
+    function updateCartBadge() {
+        const totalItems = cartItems.length;
+        cartBadge.innerText = totalItems;
+        
+    }
+    updateCartBadge()
     
 });

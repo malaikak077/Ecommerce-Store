@@ -29,9 +29,18 @@
           <button id="AddCart" class=" cart-button mt-4 border border-black ">
             Add to cart
           </button>
-          <button class=" buy-button mt-2 border border-black ">
-            Buy it now
-          </button>
+          
+            
+          <a class="text-decoration-none text-white " href="/CheckOut/<%= prod.id %>"> 
+            <button id="BuyNow" class=" buy-button mt-2 border border-black ">
+              Buy it now
+            </button>
+           
+          </a>
+
+            
+           
+          
 
         </div>
       </div>
@@ -70,10 +79,11 @@
       </div>
     </footer>
     
-
-    <!-- <script src="/JS/Cart.js"></script> -->
+    
+   
+   
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
    
 </body>

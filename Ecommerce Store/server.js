@@ -43,6 +43,30 @@ app.get('/FaceMakeup.html/:productId', async (req, res) => {
   });
 
 
+  app.get('/CheckOut/:productId', async (req, res) => {
+    try {
+    const productId = req.params.productId;
+    const prod = await FaceMakeup.findById(productId); 
+    if (!prod) {
+      return res.status(404).send('Product not found');
+    }
+    res.render('CheckOut', { prod });
+  } catch (error) {
+    console.error('Error fetching product:', error);
+    res.status(500).send('Internal Server Error');
+  }
+  });
+
+  app.get('/Check/Cart', async (req, res) => {
+  
+    res.render('CheckOutCart');
+  
+
+  });
+ 
+ 
+
+
 app.get('/EyeMakeup.html', (req, res) => {
     res.render("EyeMakeup")
 })

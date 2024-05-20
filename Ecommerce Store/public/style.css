@@ -46,6 +46,11 @@ ul  li a {
     transition: right 0.3s ease;
 }
 
+.badge {
+    font-size: 0.75rem;
+    /* padding: 0.5em; */
+}
+
 .cart-content {
     padding: 20px;
 }
@@ -100,8 +105,12 @@ ul  li a {
     padding-right: 18px ;
     border-radius: 10px;
 }
-
-
+.field{
+    width: 15vw;
+}
+.field2{
+    width: 30.5vw;
+}
 
 
 .length{
@@ -201,6 +210,9 @@ div input{
 .cart-height{
     height: 450px;
 }
+.cart-h{
+    height: 300px;
+}
 .mag{
    margin-top: 0;
 }
@@ -228,6 +240,8 @@ div input{
     padding-bottom: 10px;
     width: 270px;
 }
+
+
 .outbtn{
     background-color: black;
     color: white;
