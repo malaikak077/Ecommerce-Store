@@ -17,6 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const quantity = document.getElementById("quantity");
     const add = document.getElementById("add");
     const sub = document.getElementById("sub");
+    const checkoutButton = document.getElementById('CheckOut');
+
     let value = 1;
 
   
@@ -168,6 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
             cartContainer.appendChild(cartElement);
         });
+        updateCheckoutButton();
     }
 
    
@@ -178,6 +181,7 @@ document.addEventListener('DOMContentLoaded', function () {
             cartItems.splice(index, 1); // Remove item from cartItems array
             saveCartToCookies(cartItems); // Update cookies with modified cartItems
             updateSubtotal(); // Update subtotal display
+            updateCheckoutButton();
         }
     }
     function saveCartToCookies(cart) {
@@ -217,6 +221,15 @@ document.addEventListener('DOMContentLoaded', function () {
         cartBadge.innerText = totalItems;
         
     }
+    function updateCheckoutButton() {
+        if (cartItems.length === 0) {
+            checkoutButton.disabled = true;
+        } else {
+            checkoutButton.disabled = false;
+        }
+    }
+    
+    updateCheckoutButton();
     updateCartBadge()
     
 });

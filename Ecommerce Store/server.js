@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser'); 
 const FaceMakeup = require("./Models/FaceMakeup");
+const session = require("express-session");
 
 mongoose.connect("mongodb://localhost:27017/SemesterProject").then(() => {
         console.log('Connected to MongoDB');
@@ -9,11 +10,14 @@ mongoose.connect("mongodb://localhost:27017/SemesterProject").then(() => {
 
 const app = express()
 const port = 3000
+app.use(session({ secret: "Its  a secret" }));
 app.use(express.static("public"));
 app.use(cookieParser()); 
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(require("./middlewares/sMiddleware"));
+app.use("/", require("./routes/site/auth"));
 
 app.get('/index.html', async (req, res) => {
   const products = await FaceMakeup.find().limit(4);
