@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+    function clearCart() {
+        document.cookie = 'cart=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    }
     function getCartFromCookies() {
         const cartCookie = document.cookie.split('; ').find(cookie => cookie.startsWith('cart='));
         if (cartCookie) {
@@ -38,8 +41,25 @@ document.addEventListener('DOMContentLoaded', function () {
         totalElement.innerHTML = `$${(subtotal + shipping)}`;
     }
 
+
+
+    function calculateTotalAmount(cartItems) {
+        return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
+    }
+
+    function updateCheckoutForm(cartItems) {
+        const totalAmount = calculateTotalAmount(cartItems) + 50; // Add shipping cost
+        document.getElementById('items').value = JSON.stringify(cartItems);
+        document.getElementById('totalAmount').value = totalAmount;
+    }
+
     const cartItems = getCartFromCookies();
     if (cartItems.length > 0) {
         displayCartItems(cartItems);
     }
+
+    document.getElementById('PlaceOrder').addEventListener('click', function (event) {
+        updateCheckoutForm(cartItems);
+        clearCart();
+    });
 });

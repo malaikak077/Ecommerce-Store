@@ -230,6 +230,12 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     
     updateCheckoutButton();
-    updateCartBadge()
+    updateCartBadge();
+
+
+    
+    
+
+
     
 });

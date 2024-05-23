@@ -24,7 +24,7 @@
       <% products.forEach(product=> { %>
       
         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-          <a  id="uniqueid" class="text-decoration-none " href="/FaceMakeup.html/<%= product.id %>">
+          <a  id="uniqueid" class="text-decoration-none " href="/Face/<%= product.id %>">
           <div class="card mb-4">
             <img src="<%= product.imageUrl %>" class="card-img-top" alt="<%= product.title %>">
             <div class="card-body">
@@ -41,7 +41,22 @@
         <% }); %>
     </div>
   </div> 
-
+  <!-- Page: <%= page %> Records: <%= total %> -->
+  
+  <div class="d-flex justify-content-center ">
+    <% for( let index = 1; index <= totalPages; index++ ) { %>
+     
+        <a  class="text-black text-decoration-none " href="/FaceMakeup.html/<%= index %>">
+        
+          <button class="btn <% if(index === page) { %>btn-danger<% } %>"> <%= index %>
+            </button>
+        </a>
+     
+         
+    
+    <% } %>
+  </div>
+ 
 
  
   
