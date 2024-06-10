@@ -5,6 +5,51 @@
     padding: 0;
     
 }
+
+
+.overlay-content{
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 650px; 
+    height: 450px;
+    text-align: center;
+    z-index: 10; 
+    position: relative;
+}
+
+.overlay-content2{
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 650px; 
+    height: 500px;
+    text-align: center;
+    z-index: 10; 
+    position: relative;
+}
+.background-container{
+    background: url('../Images/bg.avif') no-repeat center center fixed; 
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.alert.flashh {
+    position: absolute;
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 100%;
+}
 body{
     font-family: "Poppins", sans-serif;
     
@@ -62,7 +107,9 @@ ul  li a {
     font-size: 24px;
     cursor: pointer;
 }
-
+.mynav{
+    margin-left: 100px;
+}
 
 
 
@@ -74,6 +121,16 @@ ul  li a {
 
 .form-control{
     width:50vw !important;
+}
+.bar{
+    
+    /* width: 10vw !important; */
+    border-bottom: 1px solid black !important;
+}
+.control{
+    width: 8vw !important;
+    all: unset;
+   
 }
   /* Define transition properties for the card */
   .card {

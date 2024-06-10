@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-center ms-5 ">
+                    <ul class="navbar-nav justify-content-center mynav ">
                         <li class="nav-item">
                             <a class="nav-link   mx-lg-1 fon" href="../index.html">HOME</a>
                         </li>
@@ -42,17 +42,27 @@
                         <li class="nav-item">
                             <a class="nav-link mx-lg-1 fon" href="../Accesories.html">ACCESSORIES</a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a class="nav-link mx-lg-1 fon" href="../ContactUs.html">CONTACT US</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link mx-lg-1 fon" href="../FAQs.html">FAQs</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
+            <form class="" action="/search" method="get">
+                <div class="bar d-flex justify-content-center align-item-center">
+                   <input type="text" class="control" placeholder="Search" aria-label="Search" name="query">
+                   <button class="btn" type="submit">
+                     <i class="fa-solid fa-search"></i>
+                   </button>
+               
+               </div>
+              
+             </form>
 
-            <div class="d-flex justify-content-center align-items-center gap-1 fs-5 " id="icons">
+            <div class="ps-3 d-flex justify-content-center align-items-center gap-1 fs-5 " id="icons">
                 <% if (!user) { %>
                     <a class="link-dark " href="/login">
                         <button class="btn"><i class="fa-solid fa-user"></i></button>
@@ -102,11 +112,12 @@
             </div>
         </div>
     </nav>
-    <% if (flash) { %>
-        <div class="alert alert-<%-flash.type%>">
-           <%= flash.message %>
-       </div>
-       <% } %>
+     <% if (flash) { %>
+        <div class="alert flashh alert-<%-flash.type%>">
+        <%= flash.message %>
+    </div>
+    <% } %>
+
        
     
     <script src="/JS/navbar.js"></script>

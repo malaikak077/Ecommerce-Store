@@ -28,13 +28,19 @@
           </div>
           <button id="AddCart" class=" cart-button mt-4 border border-black ">
             Add to cart
-          </button>  
+          </button>
+          
+            
           <a class="text-decoration-none text-white " href="/CheckOut/<%= prod.id %>"> 
             <button id="BuyNow" class=" buy-button mt-2 border border-black ">
               Buy it now
             </button>
            
-          </a>  
+          </a>
+
+            
+           
+          
 
         </div>
       </div>
@@ -50,7 +56,7 @@
         <% products.forEach(product=> { %>
         
           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
-            <a class="text-decoration-none " href="/Eye/<%= product.id %>">
+            <a class="text-decoration-none " href="/<%= product.category %>/<%= product.id %>">
             <div class="card ">
               <img src="<%= product.imageUrl %>" class="card-img-top" alt="<%= product.title %>">
               <div class="card-body">

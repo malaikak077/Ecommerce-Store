@@ -13,6 +13,10 @@ const faceMakeupSchema = new mongoose.Schema({
   price: {
     type: Number,
     required: true
+  },
+  category:{
+    type: String,
+    default: 'face'
   }
 });
 

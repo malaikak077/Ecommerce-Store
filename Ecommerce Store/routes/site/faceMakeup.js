@@ -12,7 +12,7 @@ router.get('/Face/:productId', async (req, res) => {
       if (!prod) {
         return res.status(404).send('Product not found');
       }
-      res.render('facedynamic', { prod,products });
+      res.render('dynamic', { prod,products });
     } catch (error) {
       console.error('Error fetching product:', error);
       res.status(500).send('Internal Server Error');

@@ -26,11 +26,6 @@ const products = [
         price: 150
     },
     {
-        title: 'Professional Mascara',
-        imageUrl: 'https://missrosepakistanofficial.com/cdn/shop/files/MissRoseProfessionalBlackMascara_2.jpg?v=1690995318&width=1426',
-        price: 170
-    },
-    {
         title: 'Shimmer Pallete',
         imageUrl: 'https://missrosepakistanofficial.com/cdn/shop/files/MissRose32ColorMixEyeshadowPalette_2.jpg?v=1687859210&width=1426',
         price: 150
@@ -47,7 +42,7 @@ const products = [
     },
     {
         title: 'Glitter Palette',
-        imageUrl: 'Ihttps://missrosepakistanofficial.com/cdn/shop/files/MissRose18ColorFullGlitterPalette_3.jpg?v=1687871928&width=1426',
+        imageUrl: 'https://missrosepakistanofficial.com/cdn/shop/files/MissRose18ColorFullGlitterPalette_3.jpg?v=1687871928&width=1426',
         price: 160
     },
     {
@@ -84,19 +79,12 @@ const products = [
         title: 'Color Corrector',
         imageUrl: 'https://missrosepakistanofficial.com/cdn/shop/files/MissRose4ColorConcealerandCorrectorPalette_5.jpg?v=1690983247&width=1426',
         price: 210
+    },
+    {
+        title: 'Professional Mascara',
+        imageUrl: 'https://missrosepakistanofficial.com/cdn/shop/files/MissRoseProfessionalBlackMascara_2.jpg?v=1690995318&width=1426',
+        price: 170
     }
-
-
-
-
-
-
-
-
-
-
-
-   
     
 ];
 

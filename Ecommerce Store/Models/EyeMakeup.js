@@ -14,6 +14,10 @@ let EyeMakeupSchema = mongoose.Schema({
     type: Number,
     required: true
 },
+category:{
+  type: String,
+  default: 'eye'
+}
 });
 let EyeMakeup = mongoose.model("EyeMakeup", EyeMakeupSchema);
 module.exports = EyeMakeup;

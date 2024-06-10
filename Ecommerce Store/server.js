@@ -30,6 +30,12 @@ app.use("/", require("./routes/site/checkOut"));
 app.use("/", require("./routes/site/cartCheckout"));
 app.use("/", require("./routes/site/admin"));
 app.use("/api/products", require("./routes/api/products"));
+app.use((req, res, next) => {
+  if (!req.session.recentSearches) {
+    req.session.recentSearches = [];
+  }
+  next();
+});
 
 
 app.get('/index.html', async (req, res) => {
@@ -38,6 +44,7 @@ app.get('/index.html', async (req, res) => {
 
   res.render("index",{faceproducts,eyeproducts});
 })
+//ADMIN PANNEL
 app.get('/admin/new', ensureAuthenticated, ensureAdmin, (req, res) => {
   res.render('new');
 });
@@ -47,21 +54,58 @@ app.get('/admin/edit/:id', ensureAuthenticated, ensureAdmin, async (req, res) =>
   res.render('edit', { product });
 });
 
-// app.get('/EyeMakeup.html', (req, res) => {
-//     res.render("EyeMakeup")
-// })
+
+//SEARCHING
+app.get('/search/:page?', async (req, res) => {
+  let page = Number(req.params.page) || 1;
+  let pageSize = 4;
+  const query = req.query.query;
+
+  if (query && !req.session.recentSearches.includes(query)) {
+    req.session.recentSearches.push(query);
+  }
+
+  try {
+    const faceMakeupResults = await FaceMakeup.find({ title: new RegExp(query, 'i') });
+    const eyeMakeupResults = await EyeMakeup.find({ title: new RegExp(query, 'i') });
+    
+    const allResults = faceMakeupResults.concat(eyeMakeupResults);
+    const total = allResults.length;
+    const totalPages = Math.ceil(total / pageSize);
+    const products = allResults.slice((page - 1) * pageSize, page * pageSize);
+
+    res.render('searchResults', {
+      products,
+      query,
+      total,
+      page,
+      pageSize,
+      totalPages,
+    });
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+// Route to display recent searches
+app.get('/recent-searches', (req, res) => {
+  res.render('recentSearches', { recentSearches: req.session.recentSearches });
+});
+
+
+//Other Routes
 app.get('/LipMakeup.html', (req, res) => {
     res.render("LipMakeup")
 })
 app.get('/Accesories.html', (req, res) => {
     res.render("Accesories")
 })
-app.get('/ContactUs.html',ensureAuthenticated ,(req, res) => {
-    res.render("ContactUs")
-})
-app.get('/FAQs.html', (req, res) => {
-    res.render("FAQs")
-})
+// app.get('/ContactUs.html',ensureAuthenticated ,(req, res) => {
+//     res.render("ContactUs")
+// })
+// app.get('/FAQs.html', (req, res) => {
+//     res.render("FAQs")
+// })
 
 
 
